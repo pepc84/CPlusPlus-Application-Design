@@ -1,46 +1,66 @@
+
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 int main() {
-    // Data selected from the Kaggle diabetes risk dataset
-    int patientId[9] = {
-        1, 2, 3, 4, 5, 6, 7, 8, 9
-    };
+    // Data selected from the Kaggle air quality dataset
+    double pm25[9];
+    double co2[9];
+    double temperature[9];
 
-    int age[9] = {
-        47, 53, 47, 41, 57, 58, 42, 42, 57
-    };
+    ifstream file("air_quality_dataset.csv");
+    string line;
+    string value;
 
-    string diabetesRisk[9] = {
-        "Low",
-        "Low",
-        "High",
-        "Low",
-        "Low",
-        "Low",
-        "Moderate",
-        "High",
-        "Moderate"
-    };
+    if (!file.is_open()) {
+        cout << "Error opening CSV file." << endl;
+        return 1;
+    }
+
+    // Extract the records from the CSV
+    getline(file, line);
+
+    for (int i = 0; i < 9; i++) {
+        getline(file, line);
+        stringstream ss(line);
+
+        for (int j = 0; j < 10; j++) {
+            getline(ss, value, ',');
+
+            if (j == 0) {
+                pm25[i] = stod(value);
+            }
+            else if (j == 7) {
+                co2[i] = stod(value);
+            }
+            else if (j == 9) {
+                temperature[i] = stod(value);
+            }
+        }
+    }
+
+    file.close();
 
     // Display the records
-    cout << "Diabetes Risk Dataset" << endl;
+    cout << "Air Quality Dataset" << endl;
     cout << "---------------------" << endl;
 
     for (int i = 0; i < 9; i++) {
-        cout << "Patient ID: " << patientId[i]
-             << " | Age: " << age[i]
-             << " | Diabetes Risk: " << diabetesRisk[i]
+        cout << "PM2.5: " << pm25[i]
+             << " | CO2: " << co2[i]
+             << " | Temperature: " << temperature[i]
              << endl;
     }
 
-    // Access the first age value through a pointer
-    int *agePtr = &age[0];
+    // Access the first CO2 value through a pointer
+    double *co2Ptr = &co2[0];
 
     cout << endl;
-    cout << "First patient's age through pointer: "
-         << *agePtr << endl;
+    cout << "First record's CO2 through pointer: "
+         << *co2Ptr << endl;
 
     return 0;
 }
