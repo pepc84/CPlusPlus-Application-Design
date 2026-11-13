@@ -1,8 +1,6 @@
 # CPlusPlus-Application-Design
 My C++ Application Design class projects and assignments.
 
-# C++ Application Design
-
 ## Module 08: Input Validation
 
 I added input validation to my application.
