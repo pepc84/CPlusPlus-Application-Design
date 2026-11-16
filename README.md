@@ -22,12 +22,10 @@ I propose adding an AI-powered search feature.
 
 A mock version can simulate this feature without using a real AI service.
 
-## Module 12: C++ & AI
+### Module 12: PyTorch Research
 
 I researched PyTorch, an open-source machine learning framework used to build and train AI models.
 
-PyTorch uses C++ for important operations such as tensor calculations, automatic differentiation, and neural network execution. It also provides a C++ interface called LibTorch.
-
-In my record management application, C++ would be useful for processing and searching large amounts of data efficiently. My application already uses binary search, which takes O(log n) time to find a record in a sorted list.
+PyTorch uses C++ in its underlying libraries, including ATen and LibTorch. C++ contributes efficient tensor calculations, memory management, and CPU and GPU execution. This helps PyTorch perform computationally intensive operations efficiently.
 
 Reference: https://docs.pytorch.org/cppdocs/
