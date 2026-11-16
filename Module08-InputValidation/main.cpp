@@ -72,11 +72,8 @@ public:
             return;
         }
 
-        auto pos = lower_bound(r.begin(),r.end(),id,
-            [](Record a,int id){return a.id<id;});
-
-        r.insert(pos,{id,n});
-
+        r.push_back({id,n});
+        sort(r.begin(),r.end(),[](Record a,Record b){return a.id<b.id;});
         cout<<"Record added"<<endl;
     }
 
