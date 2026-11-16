@@ -22,7 +22,7 @@ I propose adding an AI-powered search feature.
 
 A mock version can simulate this feature without using a real AI service.
 
-### Module 12: PyTorch Research
+## Module 12: PyTorch Research
 
 I researched PyTorch, an open-source machine learning framework used to build and train AI models.
 
